@@ -47,7 +47,7 @@ Sketch.create({
 ### Code Faster
 
 You can simply hook onto methods like setup, draw and mousemove to start playing:
-
+````js
 var ctx = Sketch.create();
 
 ctx.draw = function() {
@@ -55,21 +55,26 @@ ctx.draw = function() {
 	ctx.arc( random( ctx.width ), random( ctx.height ), 10, 0, TWO_PI );
 	ctx.fill();
 }
+````
 
 Mouse, touch and keyboard events are augmented and certain properties can be used outside event handlers:
 
+````js
 ctx.mousemove = function( e ) {
 	ctx.lineTo( e.x, e.y );
 }
-
+````
 Touch events
 
 For touches, just handle them - on the desktop, the 0th element will be the mouse so your code will work the same accross devices and platforms:
+
+````js
 ctx.mousemove = function( e ) {
 	for ( var i = 0, n = e.touches.length; i < n; i++ ) {
 		ctx.arc( e.touches[i].x, e.touches[i].y, 10, 0, TWO_PI );
 	}
 }
+````
 
 ### The Rest
 
