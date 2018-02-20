@@ -1,6 +1,12 @@
-## sketch.js
+## sketch.js - Highlights
 
 A tiny (~2kb gzipped) platform for JavaScript creative coding.
+
+ * Sketch is an augmented drawing context (`CanvasRenderingContext2D`, `WebGLRenderingContext` or `HTMLElement`) so it has all the expected drawing methods built in.
+ * The `mouse` property is also the first element of the `touches` array and vice versa, so you can code to one standard and get touch and multi-touch support for free.
+ * The `update` and `draw` loops run on the browser animation frame and can `stop` and `start` whenever you like.
+ * You get fast access to `Math` functions and constants, plus extras like range and array enabled `random`, `map` and `lerp`.
+ * Simple and configurable. You can even bring your own `context`, so it works well with libraries like [THREE](http://threejs.org/).
 
 <p align="center">
 <a target="_blank" href="http://soulwire.github.io/sketch.js/examples/drawing.html"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/drawing.jpg"></a>
@@ -11,8 +17,9 @@ A tiny (~2kb gzipped) platform for JavaScript creative coding.
 
 A few examples from the [showcase](http://soulwire.github.com/sketch.js/)
 
-### Start Coding Faster
+### What is Sketch JS?
 
+Sketch.js is one of the recommended libraries to enter in the canvas world. 
 sketch.js lets you get straight to the fun parts of creative coding, without ever having to worry about shims or boilerplate code.
 
 It gives you a graphics context, an animation loop, normalised input events and a host of useful callbacks to hook into.
@@ -34,16 +41,35 @@ Sketch.create({
   }
 })
 ````
-
 [See it in action](http://jsfiddle.net/soulwire/7wtbm/)
 
-### The Highlights
 
- * A sketch is an augmented drawing context (`CanvasRenderingContext2D`, `WebGLRenderingContext` or `HTMLElement`) so it has all the expected drawing methods built in.
- * The `mouse` property is also the first element of the `touches` array and vice versa, so you can code to one standard and get touch and multi-touch support for free.
- * The `update` and `draw` loops run on the browser animation frame and can `stop` and `start` whenever you like.
- * You get fast access to `Math` functions and constants, plus extras like range and array enabled `random`, `map` and `lerp`.
- * Simple and configurable. You can even bring your own `context`, so it works well with libraries like [THREE](http://threejs.org/).
+### Code Faster
+
+You can simply hook onto methods like setup, draw and mousemove to start playing:
+
+var ctx = Sketch.create();
+
+ctx.draw = function() {
+	ctx.beginPath();
+	ctx.arc( random( ctx.width ), random( ctx.height ), 10, 0, TWO_PI );
+	ctx.fill();
+}
+
+Mouse, touch and keyboard events are augmented and certain properties can be used outside event handlers:
+
+ctx.mousemove = function( e ) {
+	ctx.lineTo( e.x, e.y );
+}
+
+Touch events
+
+For touches, just handle them - on the desktop, the 0th element will be the mouse so your code will work the same accross devices and platforms:
+ctx.mousemove = function( e ) {
+	for ( var i = 0, n = e.touches.length; i < n; i++ ) {
+		ctx.arc( e.touches[i].x, e.touches[i].y, 10, 0, TWO_PI );
+	}
+}
 
 ### The Rest
 
