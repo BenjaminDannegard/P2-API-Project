@@ -1,10 +1,16 @@
-(function() {
-
-window.addEventListener('mousemove', pointermove);
+function skyLine(){
 
 var Building, Skyline, dt, sketch, skylines;
 
+var mousePos;
+
 sketch = Sketch.create();
+
+document.getElementById('drawn').addEventListener('mousemove', evt => {
+  // Grab a few interesting fields from the event
+    sketch.mouse.x = pageX;
+    sketch.mouse.y = pageY;
+});
 
 sketch.mouse.x = sketch.width / 10;
 
@@ -13,20 +19,6 @@ sketch.mouse.y = sketch.height;
 skylines = [];
 
 dt = 1;
-
-//Function for choosing the speed of the animation (KRISTINA FIRST DRAFT)
-
-//connects HTML with JS function
-window.addEventListener('onclick', changeSpeed);
-
-//Function that defines the speed of the animation
-function changeSpeed (a, b, c){
-
-  //if option a is clicked, the sketch.setup = function () is changed to specific values/slower speed etc. 
-
-}
-
-}
 
 
 // BUILDINGS
@@ -192,7 +184,6 @@ sketch.setup = function () {
 };
 
 
-
 // CLEAR
 
 sketch.clear = function () {
@@ -229,14 +220,13 @@ sketch.draw = function () {
   return results;
 };
 
-
 // Mousemove Fix
 
-var pointermove = function(e) {
+$(window).on('mousemove', function(e) {
   sketch.mouse.x = e.pageX;
-  sketch.mouse.y = e.pageY;
-  console.log(sketch.mouse.x);
-  console.log(sketch.mouse.y);
+  return sketch.mouse.y = e.pageY;
+});
+
 }
 
-}).call(this);
+skyLine();
