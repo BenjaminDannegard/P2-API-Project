@@ -1,6 +1,5 @@
 
 /* Copyright (C) 2013 Justin Windle, http://soulwire.co.uk */
-// Modified by Kristina Arnold 
 
 (function ( root, factory ) {
 
@@ -28,7 +27,7 @@
   /*
   ----------------------------------------------------------------------
 
-    Configuration
+    Config
 
   ----------------------------------------------------------------------
   */
