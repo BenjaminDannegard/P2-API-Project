@@ -1,3 +1,5 @@
+var r, g, b;
+
 function skyLine(){
 
 var Building, Skyline, dt, sketch, skylines;
@@ -6,12 +8,6 @@ var mousePos;
 
 sketch = Sketch.create();
 
-document.getElementById('drawn').addEventListener('mousemove', evt => {
-  // Grab a few interesting fields from the event
-    sketch.mouse.x = pageX;
-    sketch.mouse.y = pageY;
-});
-
 sketch.mouse.x = sketch.width / 10;
 
 sketch.mouse.y = sketch.height;
@@ -19,6 +15,10 @@ sketch.mouse.y = sketch.height;
 skylines = [];
 
 dt = 1;
+
+// var r, g, b;
+// var re, gr, bl;
+
 
 
 // BUILDINGS
@@ -162,8 +162,15 @@ Skyline.prototype.render = function () {
 
 sketch.setup = function () {
   var i, results;
+  r = random(100, 200);
+  g = random(100, 200);
+  b = random(100, 200);
+  r = Math.floor(r);
+  g = Math.floor(g);
+  b = Math.floor(b);
   i = 5;
   results = [];
+  this.r = this.g = this.b = random(100, 200);
   while (i--) {
     results.push(skylines.push(new Skyline({
       layer: i + 1,
@@ -176,7 +183,9 @@ sketch.setup = function () {
         max: 300 - (i * 35)
       },
       speed: (i + 1) * .003,
-      color: 'hsl( 200, ' + (((i + 1) * 1) + 10) + '%, ' + (75 - (i * 13)) + '% )'
+      color: 'rgb(' + r + ',' + g + ',' + b + ')',
+      //'rgb(' + (((r + 1) * 1) + 80) + (75 - (g * 32)) + b +' )',
+
     })));
   }
 
@@ -194,13 +203,15 @@ sketch.clear = function () {
 // UPDATE
 
 sketch.update = function () {
-  var i, results;
+  var i, results, o;
   dt = sketch.dt < .1 ? .1 : sketch.dt / 16;
   dt = dt > 5 ? 5 : dt;
   i = skylines.length;
+  o = skylines.color = 'rgb(' + r + ',' + g + ',' + b + ')';
   results = [];
   while (i--) {
     results.push(skylines[i].update(i));
+    results.push(skylines[i].update(o));
   }
 
   return results;
@@ -208,7 +219,6 @@ sketch.update = function () {
 
 
 // DRAW
-
 sketch.draw = function () {
   var i, results;
   i = skylines.length;
@@ -223,9 +233,24 @@ sketch.draw = function () {
 // Mousemove Fix
 
 $(window).on('mousemove', function(e) {
-  sketch.mouse.x = e.pageX;
-  return sketch.mouse.y = e.pageY;
+  r = 255 * (sketch.mouse.x / 50);
+  g = 255 * (sketch.mouse.y / 50);
+  b = 255 * abs(cos(PI * sketch.mouse.y / e.pageY));
+  r = Math.floor(r);
+  g = Math.floor(g);
+  b = Math.floor(b);
+  console.log(r);
+  console.log(g);
+  console.log(b);
 });
+
+// $(window).on('mousemove', function(e) {
+//   sketch.mouse.x = e.pageX;
+//   return sketch.mouse.y = e.pageY;
+//   this.r = 255 * (sketch.mouse.x / e.width)
+//   this.g = 255 * (sketch.mouse.y / e.length)
+//   this.b = 255 * abs(cos(PI * this.mouse.y / this.width))
+// });
 
 }
 
