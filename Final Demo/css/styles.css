@@ -1,22 +1,9 @@
+/*Sets it up so that the particles are infront of the buildings and gives the background color and transparency*/
 canvas {
     background:
     hsl(200, 15%, 16%);
     opacity: 0.68;
-    /* linear-gradient(
-        hsl(0, 0%, 0%) 0%, 
-        hsl(202, 40%, 92%) 60%) 
-    ;       
-    opacity: 1; */
     display: block;
     position: absolute;
     z-index: 1;
-}
-  
-div {
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: url(https://jackrugile.com/images/misc/skyline-texture.png);
 }

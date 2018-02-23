@@ -1,23 +1,23 @@
+//Variables that change with functions outside of skyLine()
 var x = 1, y = 1, z = 10, v = 1;
-
 var hMin = 1;
 var wMin = 1;
 
+//Main function that setsup and renders the buildings
 function skyLine(){
 
 var Building, Skyline, dt, sketch, skylines;
 
 var mousePos;
 
-sketch = Sketch.create();
+sketch = Sketch.create(); //Initializes the sketch functions and binds them to the sketch variable
 
 sketch.mouse.x = sketch.width / 10;
-
 sketch.mouse.y = sketch.height;
 
 skylines = [];
 
-var alertTimerId = 0;
+var alertTimerId = 0; //Initializes timer that keeps track of scene transition
 
 dt = 1;
 
@@ -165,10 +165,6 @@ Skyline.prototype.render = function () {
 
 sketch.setup = function () {
   var i, results;
-  // r = random(100, 200);
-  // g = random(100, 200);
-  // b = random(100, 200);
-  //r = 200;
   b = 220;
   i = 5;
   r = Math.floor(r);
@@ -189,8 +185,6 @@ sketch.setup = function () {
         max: 400 - (i * 35)
       },
       speed: (i + 1) * .003,
-      //color: 'rgb(' + r  / (i+3) + ',' + g * (i+2) + ',' + b + ')',
-      //'rgb(' + (((r + 1) * 1) + 80) + (75 - (g * 32)) + b +' )',
       color: 'hsl(' + b + ', ' + r + '%, ' + g + '%)'
 
     })));
@@ -221,20 +215,6 @@ sketch.update = function () {
   return results;
 };
 
-// particles.update = function(ctx, index, ndt) {
-//   var closestTarget, dist, dx, dy, food, i, lowestDist, target;
-//   this.x += this.vx * ndt;
-//   this.y += this.vy * ndt;
-//   this.vx *= 0.95;
-//   this.vy *= 0.95;
-//   if (this.spurt > 0.5) {
-//     this.spurt -= 0.1;
-//   }
-//   if (this.spurt <= 0.5 && !floor(random(1000))) {
-//     return this.spurt = random(1, 4);
-//   }
-// }
-
 
 // DRAW
 sketch.draw = function () {
@@ -248,43 +228,31 @@ sketch.draw = function () {
   return results;
 };
 
-// Mousemove Fix
-
-// $(window).on('mousemove', function(e) {
-//   r = 255 * (sketch.mouse.x / 50);
-//   g = 255 * (sketch.mouse.y / 50);
-//   b = 255 * abs(cos(PI * sketch.mouse.y / e.pageY));
-//   r = Math.floor(r);
-//   g = Math.floor(g);
-//   b = Math.floor(b);
-//   console.log(r);
-//   console.log(g);
-//   console.log(b);
-// });
-
+//Handles the mouse functions 
 $(window).on('mousemove', function(e) {
-  if(sketch.mouse.x > 1200)
+  //if the pointer is within these paramaters wait 5 seconds then call the page transition function
+  if(sketch.mouse.x > 1200) 
   {
-    console.log("space");
     alertTimerId = setTimeout ("pgChange()", 5000 );
   }
+  //If the mouse pointer is outside the previous paramaters then reset the timer
   if(sketch.mouse.x < 1199){
   clearTimeout ( alertTimerId );
-  console.log("cleared");
   }
+  //These create the animation that tracks with the mouse
   sketch.mouse.x = e.pageX;
   return sketch.mouse.y = e.pageY;
 });
-
-
 }
 
+//Function for changing page, called when mouse is held in a specific area on the page
 function pgChange(){
   var alertTimerId = 0;
   window.location = '../Additional pages/examples/three.html';
   console.log("Switch");
 }
 
+//All the szChange functions are for the buttons on the page to modify the buildings
 function szChangeA()
 {
   x++;
@@ -305,6 +273,7 @@ function szChangeH()
   hMin++;
 }
 
+//Function for reseting changes you made with the buttons
 function resetChanges()
 {
   x = 1;

@@ -1,6 +1,8 @@
+//These two variables keep track of what color the particles should have
 var col;
 var chk = 0;
 
+//Function that changes color of the particles
 function changePart(){
   chk++;
   if(chk == 1)
@@ -13,6 +15,7 @@ function changePart(){
   chk = 0;
 }
 
+//Function that creates the particles
 function particles() {
   var Particle;
 
@@ -97,8 +100,10 @@ function particles() {
       }
       this.fill();
     },
+    //Sketches function for knowing if keyboard buttons are pressed
     keydown: function() {
       if ( this.keys.P ){
+      //calls the color change function if P is pressed
       changePart();
       }
     }
