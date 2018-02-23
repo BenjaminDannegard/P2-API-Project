@@ -1,4 +1,7 @@
-var r, g, b;
+var x = 1, y = 1, z = 10, v = 1;
+
+var hMin = 1;
+var wMin = 1;
 
 function skyLine(){
 
@@ -14,11 +17,11 @@ sketch.mouse.y = sketch.height;
 
 skylines = [];
 
+var alertTimerId = 0;
+
 dt = 1;
 
-// var r, g, b;
-// var re, gr, bl;
-
+var r, g, b;
 
 
 // BUILDINGS
@@ -39,10 +42,10 @@ Building.prototype.reset = function (config) {
   this.slantedTopDirection = round(random(0, 1)) === 0;
   this.spireTop = floor(random(0, 15)) === 0;
   this.spireTopWidth = random(this.width * .01, this.width * .07);
-  this.spireTopHeight = random(10, 20);
+  this.spireTopHeight = random((10, 20) * y);
   this.antennaTop = !this.spireTop && floor(random(0, 10)) === 0;
   this.antennaTopWidth = this.layer / 2;
-  return this.antennaTopHeight = random(5, 20);
+  return this.antennaTopHeight = random((5, 20) * x);
 };
 
 Building.prototype.render = function () {
@@ -131,7 +134,7 @@ Skyline.prototype.update = function () {
   firstBuilding = this.buildings[0];
   if (firstBuilding.width + firstBuilding.x + this.x < 0) {
     newWidth = round(random(this.width.min, this.width.max));
-    newHeight = round(random(this.height.min, this.height.max));
+    newHeight = round(random((this.height.min, this.height.max)*hMin));
     lastBuilding = this.buildings[this.buildings.length - 1];
     firstBuilding.reset({
       layer: this.layer,
@@ -162,29 +165,33 @@ Skyline.prototype.render = function () {
 
 sketch.setup = function () {
   var i, results;
-  r = random(100, 200);
-  g = random(100, 200);
-  b = random(100, 200);
+  // r = random(100, 200);
+  // g = random(100, 200);
+  // b = random(100, 200);
+  //r = 200;
+  b = 220;
+  i = 5;
   r = Math.floor(r);
   g = Math.floor(g);
   b = Math.floor(b);
-  i = 5;
   results = [];
-  this.r = this.g = this.b = random(100, 200);
   while (i--) {
+    r = (((i + 1) * 1) + 85); 
+    g = (75 - (i * 28));
     results.push(skylines.push(new Skyline({
-      layer: i + 1,
+      layer: i,
       width: {
         min: (i + 1) * 30,
         max: (i + 1) * 40
       },
       height: {
-        min: 150 - (i * 35),
-        max: 300 - (i * 35)
+        min: 250 - (i * 35),
+        max: 400 - (i * 35)
       },
       speed: (i + 1) * .003,
-      color: 'rgb(' + r + ',' + g + ',' + b + ')',
+      //color: 'rgb(' + r  / (i+3) + ',' + g * (i+2) + ',' + b + ')',
       //'rgb(' + (((r + 1) * 1) + 80) + (75 - (g * 32)) + b +' )',
+      color: 'hsl(' + b + ', ' + r + '%, ' + g + '%)'
 
     })));
   }
@@ -207,15 +214,26 @@ sketch.update = function () {
   dt = sketch.dt < .1 ? .1 : sketch.dt / 16;
   dt = dt > 5 ? 5 : dt;
   i = skylines.length;
-  o = skylines.color = 'rgb(' + r + ',' + g + ',' + b + ')';
   results = [];
   while (i--) {
     results.push(skylines[i].update(i));
-    results.push(skylines[i].update(o));
   }
-
   return results;
 };
+
+// particles.update = function(ctx, index, ndt) {
+//   var closestTarget, dist, dx, dy, food, i, lowestDist, target;
+//   this.x += this.vx * ndt;
+//   this.y += this.vy * ndt;
+//   this.vx *= 0.95;
+//   this.vy *= 0.95;
+//   if (this.spurt > 0.5) {
+//     this.spurt -= 0.1;
+//   }
+//   if (this.spurt <= 0.5 && !floor(random(1000))) {
+//     return this.spurt = random(1, 4);
+//   }
+// }
 
 
 // DRAW
@@ -232,26 +250,67 @@ sketch.draw = function () {
 
 // Mousemove Fix
 
-$(window).on('mousemove', function(e) {
-  r = 255 * (sketch.mouse.x / 50);
-  g = 255 * (sketch.mouse.y / 50);
-  b = 255 * abs(cos(PI * sketch.mouse.y / e.pageY));
-  r = Math.floor(r);
-  g = Math.floor(g);
-  b = Math.floor(b);
-  console.log(r);
-  console.log(g);
-  console.log(b);
-});
-
 // $(window).on('mousemove', function(e) {
-//   sketch.mouse.x = e.pageX;
-//   return sketch.mouse.y = e.pageY;
-//   this.r = 255 * (sketch.mouse.x / e.width)
-//   this.g = 255 * (sketch.mouse.y / e.length)
-//   this.b = 255 * abs(cos(PI * this.mouse.y / this.width))
+//   r = 255 * (sketch.mouse.x / 50);
+//   g = 255 * (sketch.mouse.y / 50);
+//   b = 255 * abs(cos(PI * sketch.mouse.y / e.pageY));
+//   r = Math.floor(r);
+//   g = Math.floor(g);
+//   b = Math.floor(b);
+//   console.log(r);
+//   console.log(g);
+//   console.log(b);
 // });
 
+$(window).on('mousemove', function(e) {
+  if(sketch.mouse.x > 1200)
+  {
+    console.log("space");
+    alertTimerId = setTimeout ("pgChange()", 3000 );
+  }
+  else if(sketch.mouse.x < 1190){
+  clearTimeout ( alertTimerId );
+  console.log("cleared");
+  }
+  sketch.mouse.x = e.pageX;
+  return sketch.mouse.y = e.pageY;
+});
+
+
+}
+
+function pgChange(){
+  console.log("Switch");
+}
+
+function szChangeA()
+{
+  x++;
+}
+
+function szChangeS()
+{
+  y++;
+}
+
+function szChangeW()
+{
+  wMin++;
+}
+
+function szChangeH()
+{
+  hMin++;
+}
+
+function resetChanges()
+{
+  x = 1;
+  y = 1;
+  v = 1;
+  z = 1;
+  hMin = 1;
+  wMin = 1;
 }
 
 skyLine();
