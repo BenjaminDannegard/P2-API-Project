@@ -1,0 +1,1520 @@
+
+@@ -0,0 +1,2 @@
++node_modules
++*.DS_Store 
+  
+22  Final Demo/.travis.yml
+@@ -0,0 +1,22 @@
++sudo: false
++
++os:
++  - linux
++  - osx
++
++language: node_js
++
++node_js:
++  - node
++  - 4
++
++cache:
++  directories:
++    - node_modules
++
++install:
++  - npm i -g npm@latest
++  - npm install
++
++notifications:
++  email: false
+  
+181  Final Demo/Additional pages/css/example.css
+@@ -0,0 +1,181 @@
++
++@import url(http://fonts.googleapis.com/css?family=Quantico);
++
++html, body {
++
++    background: hsl(0, 35%, 9%);
++    overflow: hidden;
++    margin: 0;
++}
++
++/* Info */
++
++@-webkit-keyframes show-info {
++    0% { -webkit-transform: rotateY(120deg); }
++    100% { -webkit-transform: rotateY(0deg); }
++}
++
++@-moz-keyframes show-info {
++    0% { -moz-transform: rotateY(120deg); }
++    100% { -moz-transform: rotateY(0deg); }
++}
++
++@-ms-keyframes show-info {
++    0% { -ms-transform: rotateY(120deg); }
++    100% { -ms-transform: rotateY(0deg); }
++}
++
++@-o-keyframes show-info {
++    0% { -o-transform: rotateY(120deg); }
++    100% { -o-transform: rotateY(0deg); }
++}
++
++@keyframes show-info {
++    0% { transform: rotateY(120deg); }
++    100% { transform: rotateY(0deg); }
++}
++
++.info {
++
++    -webkit-transition: all 180ms ease-out;
++    -moz-transition: all 180ms ease-out;
++    -ms-transition: all 180ms ease-out;
++    -o-transition: all 180ms ease-out;
++    transition: all 180ms ease-out;
++
++    -webkit-transform-style: preserve-3d;
++    -moz-transform-style: preserve-3d;
++    -ms-transform-style: preserve-3d;
++    -o-transform-style: preserve-3d;
++    transform-style: preserve-3d;
++
++    -webkit-transform: perspective(800);
++    -moz-transform: perspective(800);
++    -ms-transform: perspective(800);
++    -o-transform: perspective(800);
++    transform: perspective(800);
++
++    font-family: 'Quantico', sans-serif;
++    position: absolute;
++    font-size: 12px;
++    opacity: 0.8;
++    color: #fff;
++    width: 240px;
++    left: 0px;
++    top: 20px;
++}
++
++.info:hover {
++
++    box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
++    opacity: 1.0;
++}
++
++.info h1,
++.info h2,
++.info h3 {
++
++    line-height: 1;
++    margin: 5px 0;
++}
++
++.info a {
++
++    -webkit-transition: all 200ms ease-out;
++    -moz-transition: all 200ms ease-out;
++    -ms-transition: all 200ms ease-out;
++    -o-transition: all 200ms ease-out;
++    transition: all 200ms ease-out;
++
++    border-bottom: 1px dotted rgba(255,255,255,0.4);
++    text-decoration: none;
++    opacity: 0.6;
++    color: #fff;
++}
++
++.info a:hover {
++
++    opacity: 0.99;
++}
++
++.info .about, .info .more {
++
++    -webkit-transform-origin: 0% 50%;
++    -moz-transform-origin: 0% 50%;
++    -ms-transform-origin: 0% 50%;
++    -o-transform-origin: 0% 50%;
++    transform-origin: 0% 50%;
++
++    -webkit-transform: rotateY(120deg);
++    -moz-transform: rotateY(120deg);
++    -ms-transform: rotateY(120deg);
++    -o-transform: rotateY(120deg);
++    transform: rotateY(120deg);
++
++    margin-bottom: 1px;
++    background: rgba(0,0,0,0.8);
++    padding: 12px 15px 12px 20px;
++}
++
++.info .about {
++
++    -webkit-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -moz-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -ms-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -o-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++
++    padding-bottom: 15px;
++}
++
++.info .about a {
++    
++    opacity: 0.9;
++}
++
++.info .about h1 {
++
++    letter-spacing: -1px;
++    font-weight: 300;
++    font-size: 19px;
++    opacity: 0.95;
++}
++
++.info .about h2 {
++
++    font-weight: 300;
++    font-size: 13px;
++    opacity: 0.8;
++}
++
++.info .about h3 {
++
++    text-transform: uppercase;
++    margin-top: 10px;
++    font-size: 11px;
++}
++
++.info .about h3:before {
++
++    margin-right: 2px;
++    font-size: 14px;
++    content: '\203A';
++}
++
++.info .more {
++
++    -webkit-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -moz-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -ms-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -o-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++
++    padding: 5px 15px 10px 20px;
++}
++
++.info .more a {
++    
++    text-transform: uppercase;
++    margin-right: 10px;
++    font-size: 10px;
++}​ 
+  
+161  Final Demo/Additional pages/css/main.css
+@@ -0,0 +1,161 @@
++
++@import url(http://fonts.googleapis.com/css?family=Quantico);
++
++html, body {
++
++	font-family: 'Quantico', sans-serif;
++	background: #291515;
++	text-align: center;
++	overflow: scroll;
++	margin: 0;
++}
++
++a {
++
++	-webkit-transition: color 300ms ease-out;
++	-moz-transition: color 300ms ease-out;
++	-ms-transition: color 300ms ease-out;
++	-o-transition: color 300ms ease-out;
++	transition: color 300ms ease-out;
++}
++
++.introduction {
++
++	margin-top: 80px;
++}
++
++.introduction h1,
++.introduction h2 {
++
++	font-weight: 300;
++	margin: 0px 0;
++}
++
++.introduction h1 {
++
++	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
++	font-size: 24px;
++	margin: 5px 0;
++}
++
++.introduction h2 {
++
++	letter-spacing: -1px;
++	font-size: 16px;
++	opacity: 0.8;
++}
++
++.navigation {
++
++	margin-bottom: 30px;
++	margin-top: 10px;
++}
++
++.navigation a {
++
++	text-decoration: none;
++	text-transform: uppercase;
++	font-size: 14px;
++	margin: 0 5px;
++	color: #45ADA8;
++}
++
++.navigation a:hover {
++
++	color: #58DCC3;
++}
++
++.showcase {
++
++	display: block;
++}
++
++.showcase h3 {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 14px;
++	margin: 10px 0;
++	color: #999;
++}
++
++figure {
++
++	-webkit-transition: box-shadow 300ms ease-out;
++	-moz-transition: box-shadow 300ms ease-out;
++	-ms-transition: box-shadow 300ms ease-out;
++	-o-transition: box-shadow 300ms ease-out;
++	transition: box-shadow 300ms ease-out;
++}
++
++figure {
++
++	vertical-align: middle;
++	border-radius: 3px;
++	box-shadow: 0px 0px 4px rgba(0,0,0,0.1);
++	background: #fff;
++	display: inline-block;
++	padding: 10px;
++	margin: 10px;
++	height: 340px;
++	width: 320px;
++}
++
++figure a {
++
++	text-decoration: none;
++	color: #111;
++}
++
++figure img {
++
++	box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
++	display: block;
++	height: 240px;
++	width: 320px;
++}
++
++figure figcaption {
++
++	line-height: 1.4;
++	font-size: 13px;
++	padding: 0 5px;
++	margin: 16px 0 0 0;
++}
++
++figure figcaption strong {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 16px;
++}
++
++figure figcaption p {
++
++	text-decoration: none;
++	opacity: 0.8;
++}
++
++figure figcaption p a {
++
++	text-decoration: underline;
++}
++
++figure:hover {
++
++	box-shadow: 0px 0px 0px 4px rgba(0,0,0,0.1);
++}
++
++.footer {
++
++	margin: 40px 0;
++}
++
++.footer p {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 11px;
++	margin: 10px 0 0 0;
++	color: #555;
++}
+  
+181  Final Demo/Additional pages/examples/css/example.css
+@@ -0,0 +1,181 @@
++
++@import url(http://fonts.googleapis.com/css?family=Quantico);
++
++html, body {
++
++    background: #f2f2f2;
++    overflow: hidden;
++    margin: 0;
++}
++
++/* Info */
++
++@-webkit-keyframes show-info {
++    0% { -webkit-transform: rotateY(120deg); }
++    100% { -webkit-transform: rotateY(0deg); }
++}
++
++@-moz-keyframes show-info {
++    0% { -moz-transform: rotateY(120deg); }
++    100% { -moz-transform: rotateY(0deg); }
++}
++
++@-ms-keyframes show-info {
++    0% { -ms-transform: rotateY(120deg); }
++    100% { -ms-transform: rotateY(0deg); }
++}
++
++@-o-keyframes show-info {
++    0% { -o-transform: rotateY(120deg); }
++    100% { -o-transform: rotateY(0deg); }
++}
++
++@keyframes show-info {
++    0% { transform: rotateY(120deg); }
++    100% { transform: rotateY(0deg); }
++}
++
++.info {
++
++    -webkit-transition: all 180ms ease-out;
++    -moz-transition: all 180ms ease-out;
++    -ms-transition: all 180ms ease-out;
++    -o-transition: all 180ms ease-out;
++    transition: all 180ms ease-out;
++
++    -webkit-transform-style: preserve-3d;
++    -moz-transform-style: preserve-3d;
++    -ms-transform-style: preserve-3d;
++    -o-transform-style: preserve-3d;
++    transform-style: preserve-3d;
++
++    -webkit-transform: perspective(800);
++    -moz-transform: perspective(800);
++    -ms-transform: perspective(800);
++    -o-transform: perspective(800);
++    transform: perspective(800);
++
++    font-family: 'Quantico', sans-serif;
++    position: absolute;
++    font-size: 12px;
++    opacity: 0.8;
++    color: #fff;
++    width: 240px;
++    left: 0px;
++    top: 20px;
++}
++
++.info:hover {
++
++    box-shadow: 0 0 0 4px rgba(255,255,255,0.05);
++    opacity: 1.0;
++}
++
++.info h1,
++.info h2,
++.info h3 {
++
++    line-height: 1;
++    margin: 5px 0;
++}
++
++.info a {
++
++    -webkit-transition: all 200ms ease-out;
++    -moz-transition: all 200ms ease-out;
++    -ms-transition: all 200ms ease-out;
++    -o-transition: all 200ms ease-out;
++    transition: all 200ms ease-out;
++
++    border-bottom: 1px dotted rgba(255,255,255,0.4);
++    text-decoration: none;
++    opacity: 0.6;
++    color: #fff;
++}
++
++.info a:hover {
++
++    opacity: 0.99;
++}
++
++.info .about, .info .more {
++
++    -webkit-transform-origin: 0% 50%;
++    -moz-transform-origin: 0% 50%;
++    -ms-transform-origin: 0% 50%;
++    -o-transform-origin: 0% 50%;
++    transform-origin: 0% 50%;
++
++    -webkit-transform: rotateY(120deg);
++    -moz-transform: rotateY(120deg);
++    -ms-transform: rotateY(120deg);
++    -o-transform: rotateY(120deg);
++    transform: rotateY(120deg);
++
++    margin-bottom: 1px;
++    background: rgba(0,0,0,0.8);
++    padding: 12px 15px 12px 20px;
++}
++
++.info .about {
++
++    -webkit-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -moz-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -ms-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    -o-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++    animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 600ms 1 normal forwards;
++
++    padding-bottom: 15px;
++}
++
++.info .about a {
++    
++    opacity: 0.9;
++}
++
++.info .about h1 {
++
++    letter-spacing: -1px;
++    font-weight: 300;
++    font-size: 19px;
++    opacity: 0.95;
++}
++
++.info .about h2 {
++
++    font-weight: 300;
++    font-size: 13px;
++    opacity: 0.8;
++}
++
++.info .about h3 {
++
++    text-transform: uppercase;
++    margin-top: 10px;
++    font-size: 11px;
++}
++
++.info .about h3:before {
++
++    margin-right: 2px;
++    font-size: 14px;
++    content: '\203A';
++}
++
++.info .more {
++
++    -webkit-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -moz-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -ms-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    -o-animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++    animation: show-info 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000) 500ms 1 normal forwards;
++
++    padding: 5px 15px 10px 20px;
++}
++
++.info .more a {
++    
++    text-transform: uppercase;
++    margin-right: 10px;
++    font-size: 10px;
++}​ 
+  
+161  Final Demo/Additional pages/examples/css/main.css
+@@ -0,0 +1,161 @@
++
++@import url(http://fonts.googleapis.com/css?family=Quantico);
++
++html, body {
++
++	font-family: 'Quantico', sans-serif;
++	background: #f2f2f2;
++	text-align: center;
++	overflow: scroll;
++	margin: 0;
++}
++
++a {
++
++	-webkit-transition: color 300ms ease-out;
++	-moz-transition: color 300ms ease-out;
++	-ms-transition: color 300ms ease-out;
++	-o-transition: color 300ms ease-out;
++	transition: color 300ms ease-out;
++}
++
++.introduction {
++
++	margin-top: 80px;
++}
++
++.introduction h1,
++.introduction h2 {
++
++	font-weight: 300;
++	margin: 0px 0;
++}
++
++.introduction h1 {
++
++	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
++	font-size: 24px;
++	margin: 5px 0;
++}
++
++.introduction h2 {
++
++	letter-spacing: -1px;
++	font-size: 16px;
++	opacity: 0.8;
++}
++
++.navigation {
++
++	margin-bottom: 30px;
++	margin-top: 10px;
++}
++
++.navigation a {
++
++	text-decoration: none;
++	text-transform: uppercase;
++	font-size: 14px;
++	margin: 0 5px;
++	color: #45ADA8;
++}
++
++.navigation a:hover {
++
++	color: #58DCC3;
++}
++
++.showcase {
++
++	display: block;
++}
++
++.showcase h3 {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 14px;
++	margin: 10px 0;
++	color: #999;
++}
++
++figure {
++
++	-webkit-transition: box-shadow 300ms ease-out;
++	-moz-transition: box-shadow 300ms ease-out;
++	-ms-transition: box-shadow 300ms ease-out;
++	-o-transition: box-shadow 300ms ease-out;
++	transition: box-shadow 300ms ease-out;
++}
++
++figure {
++
++	vertical-align: middle;
++	border-radius: 3px;
++	box-shadow: 0px 0px 4px rgba(0,0,0,0.1);
++	background: #fff;
++	display: inline-block;
++	padding: 10px;
++	margin: 10px;
++	height: 340px;
++	width: 320px;
++}
++
++figure a {
++
++	text-decoration: none;
++	color: #111;
++}
++
++figure img {
++
++	box-shadow: 0px 0px 2px rgba(0,0,0,0.1);
++	display: block;
++	height: 240px;
++	width: 320px;
++}
++
++figure figcaption {
++
++	line-height: 1.4;
++	font-size: 13px;
++	padding: 0 5px;
++	margin: 16px 0 0 0;
++}
++
++figure figcaption strong {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 16px;
++}
++
++figure figcaption p {
++
++	text-decoration: none;
++	opacity: 0.8;
++}
++
++figure figcaption p a {
++
++	text-decoration: underline;
++}
++
++figure:hover {
++
++	box-shadow: 0px 0px 0px 4px rgba(0,0,0,0.1);
++}
++
++.footer {
++
++	margin: 40px 0;
++}
++
++.footer p {
++
++	text-transform: uppercase;
++	font-weight: 300;
++	font-size: 11px;
++	margin: 10px 0 0 0;
++	color: #555;
++}
+  
+19  Final Demo/Additional pages/examples/three.html
+@@ -0,0 +1,19 @@
++<!doctype html>
++<html>
++    <head>
++        <title>sketch.js &raquo; THREE.js Example</title>
++        <link rel="stylesheet" href="css/example.css">
++        <style type="text/css">
++            html, body {
++                background: hsl(0, 88%, 6%);
++            }
++        </style>
++    </head>
++    <body>
++        </header>
++        <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
++        <script src="../js/sketch.js"></script>
++        <script src="../../js/jquery-3.3.1.js"></script>
++        <script src="../js/transition.js"></script>
++    </body>
++</html>
+  
+BIN  Final Demo/Additional pages/img/three.jpg
+
+  
+631  Final Demo/Additional pages/js/sketch.js
+Large diffs are not rendered by default.
+
+  
+2  Final Demo/Additional pages/js/sketch.min.js
+Some generated files are not rendered by default. Learn more.
+
+  
+76  Final Demo/Additional pages/js/transition.js
+@@ -0,0 +1,76 @@
++function mouseSetup(){
++
++
++    var camera, scene, geometry, material, mesh, renderer = new THREE.WebGLRenderer();
++
++    var demo = Sketch.create({
++
++        type: Sketch.WEBGL,
++
++        // Use existing element
++        element: renderer.domElement,
++
++        // Use existing context
++        context: renderer.context,
++
++        setup: function() {
++
++            camera = new THREE.PerspectiveCamera( 75, this.width / this.height, 1, 10000 );
++            camera.position.z = 1000;
++
++            scene = new THREE.Scene();
++
++            geometry = new THREE.CubeGeometry( 600, 600, 600 );
++            material = new THREE.MeshBasicMaterial( { color: 0xFF0C7A, wireframe: true } );
++
++            mesh = new THREE.Mesh( geometry, material );
++            scene.add( mesh );
++        },
++
++        resize: function() {
++
++            camera.aspect = this.width / this.height;
++            camera.updateProjectionMatrix();
++
++            renderer.setSize( this.width, this.height );
++        },
++
++        draw: function() {
++
++//changed the speed to a very high number in order to get a new rotation effect (had bee 0.02 before)
++
++            mesh.rotation.x += 0.030;
++            mesh.rotation.y += 0.030;
++
++            renderer.render( scene, camera );
++        }
++    });
++    
++var mousePos;
++
++var alertTimerId1 = 0;
++
++demo.mouse.x = demo.width / 10;
++
++demo.mouse.y = demo.height;
++
++$(window).on('mousemove', function(e) {
++  if(demo.mouse.x < 100)
++  {
++    console.log("space");
++    alertTimerId1 = setTimeout ("pgChange()", 5000 );
++  }
++  if(demo.mouse.x > 101){
++  clearTimeout ( alertTimerId1 );
++  console.log("cleared");
++  }
++});
++}
++
++mouseSetup();
++
++function pgChange(){
++  var alertTimerId = 0;
++  window.location = '../../../parallax.html';
++  console.log("Switch");
++} 
+  
+38  Final Demo/Additional pages/package.json
+@@ -0,0 +1,38 @@
++{
++  "name": "sketch-js",
++  "version": "1.1.3",
++  "description": "Cross-Platform JavaScript Creative Coding Framework",
++  "main": "./js/sketch.js",
++  "directories": {
++    "example": "examples",
++    "test": "tests",
++    "lib": "js"
++  },
++  "scripts": {
++    "build": "uglifyjs js/sketch.js --comments /copy/i -cmo js/sketch.min.js",
++    "test": "echo \"visit ./tests/index.html in browser\""
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/soulwire/sketch.js.git"
++  },
++  "author": {
++    "name": "Justin Windle",
++    "url": "https://github.com/soulwire"
++  },
++  "license": "MIT",
++  "bugs": {
++    "url": "https://github.com/soulwire/sketch.js/issues"
++  },
++  "homepage": "https://github.com/soulwire/sketch.js",
++  "keywords": [
++    "sketch",
++    "canvas",
++    "webgl",
++    "2d",
++    "javascript"
++  ],
++  "devDependencies": {
++    "uglify-js": "^2.7.4"
++  }
++}
+   
+21  Final Demo/LICENSE.md
+@@ -0,0 +1,21 @@
++The MIT License
++
++Copyright (C) 2013 Justin Windle. http://soulwire.co.uk
++
++Permission is hereby granted, free of charge, to any person obtaining a copy
++of this software and associated documentation files (the "Software"), to deal
++in the Software without restriction, including without limitation the rights
++to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
++copies of the Software, and to permit persons to whom the Software is
++furnished to do so, subject to the following conditions:
++
++The above copyright notice and this permission notice shall be included in
++all copies or substantial portions of the Software.
++
++THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
++IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
++FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
++AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
++LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
++OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
++THE SOFTWARE.
+   
+50  Final Demo/README.md
+@@ -0,0 +1,50 @@
++## sketch.js
++
++A tiny (~2kb gzipped) platform for JavaScript creative coding.
++
++<p align="center">
++<a target="_blank" href="http://soulwire.github.io/sketch.js/examples/drawing.html"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/drawing.jpg"></a>
++<a target="_blank" href="http://soulwire.github.io/sketch.js/examples/particles.html"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/particles.jpg"></a>
++<a target="_blank" href="http://soulwire.github.com/Plasmatic-Isosurface/"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/plasma.jpg"></a>
++<a target="_blank" href="http://soulwire.github.com/Muscular-Hydrostats/"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/tentacles.jpg"></a>
++</p>
++
++A few examples from the [showcase](http://soulwire.github.com/sketch.js/)
++
++### Start Coding Faster
++
++sketch.js lets you get straight to the fun parts of creative coding, without ever having to worry about shims or boilerplate code.
++
++It gives you a graphics context, an animation loop, normalised input events and a host of useful callbacks to hook into.
++
++Here's an example:
++````js
++Sketch.create({
++  setup() {
++    this.r = this.g = this.b = random(100, 200)
++  },
++  mousemove() {
++    this.r = 255 * (this.mouse.x / this.width)
++    this.g = 255 * (this.mouse.y / this.height)
++    this.b = 255 * abs(cos(PI * this.mouse.y / this.width))
++  },
++  draw() {
++    this.fillStyle = `rgb(${~~this.r},${~~this.g},${~~this.b})`
++    this.fillRect(0, 0, this.width, this.height)
++  }
++})
++````
++
++[See it in action](http://jsfiddle.net/soulwire/7wtbm/)
++
++### The Highlights
++
++ * A sketch is an augmented drawing context (`CanvasRenderingContext2D`, `WebGLRenderingContext` or `HTMLElement`) so it has all the expected drawing methods built in.
++ * The `mouse` property is also the first element of the `touches` array and vice versa, so you can code to one standard and get touch and multi-touch support for free.
++ * The `update` and `draw` loops run on the browser animation frame and can `stop` and `start` whenever you like.
++ * You get fast access to `Math` functions and constants, plus extras like range and array enabled `random`, `map` and `lerp`.
++ * Simple and configurable. You can even bring your own `context`, so it works well with libraries like [THREE](http://threejs.org/).
++
++### The Rest
++
++For more information, check out the [getting started guide](https://github.com/soulwire/sketch.js/wiki/Getting-Started), the [API](https://github.com/soulwire/sketch.js/wiki/API), the many examples in the [showcase](http://soulwire.github.com/sketch.js/) and the full [source](https://github.com/soulwire/sketch.js/blob/master/js/sketch.js).
+  
+22  Final Demo/css/styles.css
+@@ -0,0 +1,22 @@
++canvas {
++    background:
++    hsl(200, 15%, 16%);
++    opacity: 0.68;
++    /* linear-gradient(
++        hsl(0, 0%, 0%) 0%, 
++        hsl(202, 40%, 92%) 60%) 
++    ;       
++    opacity: 1; */
++    display: block;
++    position: absolute;
++    z-index: 1;
++}
++  
++div {
++    height: 100%;
++    left: 0;
++    position: fixed;
++    top: 0;
++    width: 100%;
++    background: url(https://jackrugile.com/images/misc/skyline-texture.png);
++} 
+  
+318  Final Demo/js/example.js
+@@ -0,0 +1,318 @@
++var x = 1, y = 1, z = 10, v = 1;
++
++var hMin = 1;
++var wMin = 1;
++
++function skyLine(){
++
++var Building, Skyline, dt, sketch, skylines;
++
++var mousePos;
++
++sketch = Sketch.create();
++
++sketch.mouse.x = sketch.width / 10;
++
++sketch.mouse.y = sketch.height;
++
++skylines = [];
++
++var alertTimerId = 0;
++
++dt = 1;
++
++var r, g, b;
++
++
++// BUILDINGS
++
++Building = function (config) {
++  return this.reset(config);
++};
++
++Building.prototype.reset = function (config) {
++  this.layer = config.layer;
++  this.x = config.x;
++  this.y = config.y;
++  this.width = config.width;
++  this.height = config.height;
++  this.color = config.color;
++  this.slantedTop = floor(random(0, 10)) === 0;
++  this.slantedTopHeight = this.width / random(2, 4);
++  this.slantedTopDirection = round(random(0, 1)) === 0;
++  this.spireTop = floor(random(0, 15)) === 0;
++  this.spireTopWidth = random(this.width * .01, this.width * .07);
++  this.spireTopHeight = random((10, 20) * y);
++  this.antennaTop = !this.spireTop && floor(random(0, 10)) === 0;
++  this.antennaTopWidth = this.layer / 2;
++  return this.antennaTopHeight = random((5, 20) * x);
++};
++
++Building.prototype.render = function () {
++  sketch.fillStyle = sketch.strokeStyle = this.color;
++  sketch.lineWidth = 2;
++  sketch.beginPath();
++  sketch.rect(this.x, this.y, this.width, this.height);
++  sketch.fill();
++  sketch.stroke();
++  if (this.slantedTop) {
++    sketch.beginPath();
++    sketch.moveTo(this.x, this.y);
++    sketch.lineTo(this.x + this.width, this.y);
++    if (this.slantedTopDirection) {
++      sketch.lineTo(this.x + this.width, this.y - this.slantedTopHeight);
++    } else {
++      sketch.lineTo(this.x, this.y - this.slantedTopHeight);
++    }
++    sketch.closePath();
++    sketch.fill();
++    sketch.stroke();
++  }
++  if (this.spireTop) {
++    sketch.beginPath();
++    sketch.moveTo(this.x + (this.width / 2), this.y - this.spireTopHeight);
++    sketch.lineTo(this.x + (this.width / 2) + this.spireTopWidth, this.y);
++    sketch.lineTo(this.x + (this.width / 2) - this.spireTopWidth, this.y);
++    sketch.closePath();
++    sketch.fill();
++    sketch.stroke();
++  }
++  if (this.antennaTop) {
++    sketch.beginPath();
++    sketch.moveTo(this.x + (this.width / 2), this.y - this.antennaTopHeight);
++    sketch.lineTo(this.x + (this.width / 2), this.y);
++    sketch.lineWidth = this.antennaTopWidth;
++    return sketch.stroke();
++  }
++};
++
++
++// SKYLINES
++
++Skyline = function (config) {
++  this.x = 0;
++  this.buildings = [];
++  this.layer = config.layer;
++  this.width = {
++    min: config.width.min,
++    max: config.width.max
++  };
++  this.height = {
++    min: config.height.min,
++    max: config.height.max
++  };
++  this.speed = config.speed;
++  this.color = config.color;
++  this.populate();
++  return this;
++};
++
++Skyline.prototype.populate = function () {
++  var newHeight, newWidth, results, totalWidth;
++  totalWidth = 0;
++  results = [];
++  while (totalWidth <= sketch.width + (this.width.max * 2)) {
++    newWidth = round(random(this.width.min, this.width.max));
++    newHeight = round(random(this.height.min, this.height.max));
++    this.buildings.push(new Building({
++      layer: this.layer,
++      x: this.buildings.length === 0 ? 0 : this.buildings[this.buildings.length - 1].x + this.buildings[this.buildings.length - 1].width,
++      y: sketch.height - newHeight,
++      width: newWidth,
++      height: newHeight,
++      color: this.color
++    }));
++    results.push(totalWidth += newWidth);
++  }
++
++  return results;
++};
++
++Skyline.prototype.update = function () {
++  var firstBuilding, lastBuilding, newHeight, newWidth;
++  this.x -= (sketch.mouse.x * this.speed) * dt;
++  firstBuilding = this.buildings[0];
++  if (firstBuilding.width + firstBuilding.x + this.x < 0) {
++    newWidth = round(random(this.width.min, this.width.max));
++    newHeight = round(random((this.height.min, this.height.max)*hMin));
++    lastBuilding = this.buildings[this.buildings.length - 1];
++    firstBuilding.reset({
++      layer: this.layer,
++      x: lastBuilding.x + lastBuilding.width,
++      y: sketch.height - newHeight,
++      width: newWidth,
++      height: newHeight,
++      color: this.color
++    });
++    return this.buildings.push(this.buildings.shift());
++  }
++};
++
++Skyline.prototype.render = function () {
++  var i;
++  i = this.buildings.length;
++  sketch.save();
++  sketch.translate(this.x, (sketch.height - sketch.mouse.y) / 20 * this.layer);
++  while (i--) {
++    this.buildings[i].render(i);
++  }
++
++  return sketch.restore();
++};
++
++
++// SETUP
++
++sketch.setup = function () {
++  var i, results;
++  // r = random(100, 200);
++  // g = random(100, 200);
++  // b = random(100, 200);
++  //r = 200;
++  b = 220;
++  i = 5;
++  r = Math.floor(r);
++  g = Math.floor(g);
++  b = Math.floor(b);
++  results = [];
++  while (i--) {
++    r = (((i + 1) * 1) + 85); 
++    g = (75 - (i * 28));
++    results.push(skylines.push(new Skyline({
++      layer: i,
++      width: {
++        min: (i + 1) * 30,
++        max: (i + 1) * 40
++      },
++      height: {
++        min: 250 - (i * 35),
++        max: 400 - (i * 35)
++      },
++      speed: (i + 1) * .003,
++      //color: 'rgb(' + r  / (i+3) + ',' + g * (i+2) + ',' + b + ')',
++      //'rgb(' + (((r + 1) * 1) + 80) + (75 - (g * 32)) + b +' )',
++      color: 'hsl(' + b + ', ' + r + '%, ' + g + '%)'
++
++    })));
++  }
++
++  return results;
++};
++
++
++// CLEAR
++
++sketch.clear = function () {
++  return sketch.clearRect(0, 0, sketch.width, sketch.height);
++};
++
++
++// UPDATE
++
++sketch.update = function () {
++  var i, results, o;
++  dt = sketch.dt < .1 ? .1 : sketch.dt / 16;
++  dt = dt > 5 ? 5 : dt;
++  i = skylines.length;
++  results = [];
++  while (i--) {
++    results.push(skylines[i].update(i));
++  }
++  return results;
++};
++
++// particles.update = function(ctx, index, ndt) {
++//   var closestTarget, dist, dx, dy, food, i, lowestDist, target;
++//   this.x += this.vx * ndt;
++//   this.y += this.vy * ndt;
++//   this.vx *= 0.95;
++//   this.vy *= 0.95;
++//   if (this.spurt > 0.5) {
++//     this.spurt -= 0.1;
++//   }
++//   if (this.spurt <= 0.5 && !floor(random(1000))) {
++//     return this.spurt = random(1, 4);
++//   }
++// }
++
++
++// DRAW
++sketch.draw = function () {
++  var i, results;
++  i = skylines.length;
++  results = [];
++  while (i--) {
++    results.push(skylines[i].render(i));
++  }
++
++  return results;
++};
++
++// Mousemove Fix
++
++// $(window).on('mousemove', function(e) {
++//   r = 255 * (sketch.mouse.x / 50);
++//   g = 255 * (sketch.mouse.y / 50);
++//   b = 255 * abs(cos(PI * sketch.mouse.y / e.pageY));
++//   r = Math.floor(r);
++//   g = Math.floor(g);
++//   b = Math.floor(b);
++//   console.log(r);
++//   console.log(g);
++//   console.log(b);
++// });
++
++$(window).on('mousemove', function(e) {
++  if(sketch.mouse.x > 1200)
++  {
++    console.log("space");
++    alertTimerId = setTimeout ("pgChange()", 5000 );
++  }
++  if(sketch.mouse.x < 1199){
++  clearTimeout ( alertTimerId );
++  console.log("cleared");
++  }
++  sketch.mouse.x = e.pageX;
++  return sketch.mouse.y = e.pageY;
++});
++
++
++}
++
++function pgChange(){
++  var alertTimerId = 0;
++  window.location = '../Additional pages/examples/three.html';
++  console.log("Switch");
++}
++
++function szChangeA()
++{
++  x++;
++}
++
++function szChangeS()
++{
++  y++;
++}
++
++function szChangeW()
++{
++  wMin++;
++}
++
++function szChangeH()
++{
++  hMin++;
++}
++
++function resetChanges()
++{
++  x = 1;
++  y = 1;
++  v = 1;
++  z = 1;
++  hMin = 1;
++  wMin = 1;
++}
++
++skyLine(); 
+  
+10,364  Final Demo/js/jquery-3.3.1.js
+Large diffs are not rendered by default.
+
+  
+109  Final Demo/js/particles.js
+@@ -0,0 +1,109 @@
++var col;
++var chk = 0;
++
++function changePart(){
++  chk++;
++  if(chk == 1)
++  col = '#fff';
++  if(chk == 2)
++  col = '#000000';
++  if(chk == 3)
++  col = '#0000FF';
++  if(chk == 4)
++  chk = 0;
++}
++
++function particles() {
++  var Particle;
++
++  Particle = class Particle {
++    constructor(x, y) {
++      this.x = x;
++      this.y = y;
++      this.vx = 0;
++      this.vy = 0;
++      this.radius = 5;
++      this.spurt = 0.5;
++      this.color = '#fff';
++      this;
++    }
++
++    update(ctx, index, ndt) {
++      var dist, dx, dy, i;
++      this.vx += -(random(-0.2, 1)) * this.spurt;
++      this.vy += (random(-0.2, 0.2)) * this.spurt;
++      this.x += this.vx * ndt;
++      this.y += this.vy * ndt;
++      this.vx *= 0.97;
++      this.vy *= 0.95;
++      if (this.spurt > 0.5) {
++        this.spurt -= 0.1;
++      }
++      if (this.spurt <= 0.5 && !floor(random(1000))) {
++        return this.spurt = random(1, 4);
++      }
++    }
++
++    wrap(ctx) {
++      if (!this.hasTarget) {
++        if (this.x > ctx.width + this.radius) {
++          this.x = -this.radius;
++        } else if (this.x < -this.radius) {
++          this.x = ctx.width + this.radius;
++        }
++        if (this.y > ctx.height + this.radius) {
++          return this.y = -this.radius;
++        } else if (this.y < -this.radius) {
++          return this.y = ctx.height + this.radius;
++        }
++      }
++    }
++
++  };
++
++  var particles = Sketch.create({
++    setup: function() {
++      var i;
++      return this.Particles = (function() {
++        var j, results;
++        results = [];
++        for (i = j = 0; j <= 1700; i = ++j) {
++          results.push(new Particle(i, random(this.height)));
++        }
++        return results;
++      }).call(this);
++    },
++    update: function() {
++      var i, results;
++      this.ndt = max(0.001, this.dt / (1000 / 60));
++      this.tick++;
++      i = this.Particles.length;
++      results = [];
++      while (i--) {
++        this.Particles[i].wrap(this);
++        results.push(this.Particles[i].update(this, i, this.ndt));
++      }
++      return results;
++    },
++    draw: function() {
++      var Particle, i;
++      this.fillStyle = '#d33';
++      this.beginPath();
++      this.fillStyle = col;
++      i = this.Particles.length;
++      while (i--) {
++        Particle = this.Particles[i];
++        this.rect(~~Particle.x, ~~Particle.y, 2, 2);
++      }
++      this.fill();
++    },
++    keydown: function() {
++      if ( this.keys.P ){
++      changePart();
++      }
++    }
++  });
++
++}
++
++particles(); 
+  
+631  Final Demo/js/sketch.js
+Large diffs are not rendered by default.
+
+  
+2  Final Demo/js/sketch.min.js
+Some generated files are not rendered by default. Learn more.
+
+  
+44  Final Demo/package.json
+@@ -0,0 +1,44 @@
++{
++  "name": "sketch-js",
++  "version": "1.1.3",
++  "description": "Cross-Platform JavaScript Creative Coding Framework",
++  "main": "./js/sketch.js",
++  "directories": {
++    "example": "examples",
++    "test": "tests",
++    "lib": "js"
++  },
++  "scripts": {
++    "build": "uglifyjs js/sketch.js --comments /copy/i -cmo js/sketch.min.js",
++    "test": "echo \"visit ./tests/index.html in browser\"",
++  },
++  "repository": {
++    "type": "git",
++    "url": "https://github.com/soulwire/sketch.js.git"
++  },
++  "author": {
++    "name": "Justin Windle",
++    "url": "https://github.com/soulwire"
++  },
++  "license": "MIT",
++  "bugs": {
++    "url": "https://github.com/soulwire/sketch.js/issues"
++  },
++  "homepage": "https://github.com/soulwire/sketch.js",
++  "keywords": [
++    "sketch",
++    "canvas",
++    "webgl",
++    "2d",
++    "javascript"
++  ],
++  "devDependencies": {
++    "uglify-js": "^2.7.4"
++  },
++  "typeAcquisition": {
++      "include": [
++         "jquery"
++      ]
++  }
++
++}
+  
+28  Final Demo/parallax.html
+@@ -0,0 +1,28 @@
++<!doctype html>
++<html>
++    <head>
++        <link rel="stylesheet" type="text/css" href="css/styles.css">
++    </head>
++<body>
++
++<button onclick="szChangeA()";>Increase size of antenas</button>
++<button onclick="szChangeS()";>Increase size of spires</button>
++
++<button onclick="szChangeH()";>Increase the height of buildings</button>
++
++<button onclick="resetChanges()";>Reset changes</button>
++
++<script src="/js/jquery-3.3.1.js"></script>
++<script src="/js/sketch.js"></script>
++<script src="/js/example.js"></script>
++<script src="/js/particles.js"></script>
++
++</body>
++</html>
++<!--
++
++Canvas Parallax Skyline
++-----------------------
++Move your mouse to change speed and move up and down.
++
++--> 
+  
+2  Sketches/Kristina Sketch/Three Example/three.html
+@@ -13,7 +13,7 @@
+        
+         </header>
+         <script src="http://cdnjs.cloudflare.com/ajax/libs/three.js/r58/three.min.js"></script>
+-        <script src="../js/sketch.js"></script>
++        <script src="/js/sketch.js"></script>
+         <script>
+ 
+         var camera, scene, geometry, material, mesh, renderer = new THREE.WebGLRenderer();
+0 comments on commit d53d99d
+@habilagarba
+  
+            
+ 
+ 
