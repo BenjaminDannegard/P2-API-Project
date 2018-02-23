@@ -1,50 +1,15 @@
-## sketch.js
+Sketch.js is a lightweight 2D graphics rendering API that gives the user acces to graphics context, an animation loop, normalised input events and a host of useful callbacks. It allows for smooth and easy js animations and can be combined with the library Three.js to handle 3D objects. It can also be used to simulate physics.
+It uses the canvas element to create drawings and then has its own pre built functions for helping the user with animating these drawings.
 
-A tiny (~2kb gzipped) platform for JavaScript creative coding.
+To set up the demo you simply have to run it as a live server from visual code or something similar. The node.js are not set so it is not possible to launch with npm.
+The Final Demo folder is where the demo is located and the Parallax.html is the main html so start your live server from that html file.
 
-<p align="center">
-<a target="_blank" href="http://soulwire.github.io/sketch.js/examples/drawing.html"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/drawing.jpg"></a>
-<a target="_blank" href="http://soulwire.github.io/sketch.js/examples/particles.html"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/particles.jpg"></a>
-<a target="_blank" href="http://soulwire.github.com/Plasmatic-Isosurface/"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/plasma.jpg"></a>
-<a target="_blank" href="http://soulwire.github.com/Muscular-Hydrostats/"><img width="24.5%" src="http://soulwire.github.io/sketch.js/examples/img/tentacles.jpg"></a>
-</p>
+The Demo we have created uses the sketch.js API to animate a background and to animate particles. The background animations is tied to mouse movement, and so is the speed of the background movement.
+The particles are self controlled. Pressing the P key will change the color of the particles. At the top of the page there are buttons that modify the buildings in some aspect.
+This to show how easy it is to modify single aspects of a drawing, when compared to just using a canvas. The buttons increase the size of antenas, which are the lines on top of some buildings. The increase size of spires works in a similar way, the spires are also ontop of some buildings. The increase height of buildings raises all the building in the next render passes height, the ammount is set to something high for ease of demonstration, but could easily be changed. And finaly there is the reset changes button, this reverts everything to normal in the next render pass.
 
-A few examples from the [showcase](http://soulwire.github.com/sketch.js/)
+Keeping your mouse at the far right of the page for 5 seconds will transition your page to another. It will bring up the three.js example. Keeping your mouse at the far left side of the three.js example page for 5 seconds will bring you back to the previous page.
 
-### Start Coding Faster
+Sketch.js github: https://github.com/soulwire/sketch.js
 
-sketch.js lets you get straight to the fun parts of creative coding, without ever having to worry about shims or boilerplate code.
-
-It gives you a graphics context, an animation loop, normalised input events and a host of useful callbacks to hook into.
-
-Here's an example:
-````js
-Sketch.create({
-  setup() {
-    this.r = this.g = this.b = random(100, 200)
-  },
-  mousemove() {
-    this.r = 255 * (this.mouse.x / this.width)
-    this.g = 255 * (this.mouse.y / this.height)
-    this.b = 255 * abs(cos(PI * this.mouse.y / this.width))
-  },
-  draw() {
-    this.fillStyle = `rgb(${~~this.r},${~~this.g},${~~this.b})`
-    this.fillRect(0, 0, this.width, this.height)
-  }
-})
-````
-
-[See it in action](http://jsfiddle.net/soulwire/7wtbm/)
-
-### The Highlights
-
- * A sketch is an augmented drawing context (`CanvasRenderingContext2D`, `WebGLRenderingContext` or `HTMLElement`) so it has all the expected drawing methods built in.
- * The `mouse` property is also the first element of the `touches` array and vice versa, so you can code to one standard and get touch and multi-touch support for free.
- * The `update` and `draw` loops run on the browser animation frame and can `stop` and `start` whenever you like.
- * You get fast access to `Math` functions and constants, plus extras like range and array enabled `random`, `map` and `lerp`.
- * Simple and configurable. You can even bring your own `context`, so it works well with libraries like [THREE](http://threejs.org/).
-
-### The Rest
-
-For more information, check out the [getting started guide](https://github.com/soulwire/sketch.js/wiki/Getting-Started), the [API](https://github.com/soulwire/sketch.js/wiki/API), the many examples in the [showcase](http://soulwire.github.com/sketch.js/) and the full [source](https://github.com/soulwire/sketch.js/blob/master/js/sketch.js).
+Our github repository: https://github.com/BenjaminDannegard/P2-API-Project

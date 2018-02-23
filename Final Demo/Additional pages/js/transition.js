@@ -53,7 +53,7 @@ var alertTimerId1 = 0;
 demo.mouse.x = demo.width / 10;
 
 demo.mouse.y = demo.height;
-
+//Set up the same that the paralllax.html is. Changes page if you keep your mouse within these coordinates for 5 seconds
 $(window).on('mousemove', function(e) {
   if(demo.mouse.x < 100)
   {
@@ -69,6 +69,7 @@ $(window).on('mousemove', function(e) {
 
 mouseSetup();
 
+//Function for changing page
 function pgChange(){
   var alertTimerId = 0;
   window.location = '../../../parallax.html';

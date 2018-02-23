@@ -12,6 +12,7 @@ var mousePos;
 
 sketch = Sketch.create(); //Initializes the sketch functions and binds them to the sketch variable
 
+//Calculate the x and y values for the sketch.mouse variable. Used in the parallax animation
 sketch.mouse.x = sketch.width / 10;
 sketch.mouse.y = sketch.height;
 
@@ -24,8 +25,7 @@ dt = 1;
 var r, g, b;
 
 
-// BUILDINGS
-
+// Buildings
 Building = function (config) {
   return this.reset(config);
 };
@@ -87,8 +87,7 @@ Building.prototype.render = function () {
 };
 
 
-// SKYLINES
-
+//Sets up the skyline array
 Skyline = function (config) {
   this.x = 0;
   this.buildings = [];
@@ -127,7 +126,7 @@ Skyline.prototype.populate = function () {
 
   return results;
 };
-
+//Update function that takes into account the last building so as not to make too many look alikes
 Skyline.prototype.update = function () {
   var firstBuilding, lastBuilding, newHeight, newWidth;
   this.x -= (sketch.mouse.x * this.speed) * dt;
@@ -148,6 +147,7 @@ Skyline.prototype.update = function () {
   }
 };
 
+//Render function that allows us to render out the buildings
 Skyline.prototype.render = function () {
   var i;
   i = this.buildings.length;
@@ -161,8 +161,7 @@ Skyline.prototype.render = function () {
 };
 
 
-// SETUP
-
+// Sets up the buildings and all their elements
 sketch.setup = function () {
   var i, results;
   b = 220;
@@ -171,6 +170,7 @@ sketch.setup = function () {
   g = Math.floor(g);
   b = Math.floor(b);
   results = [];
+  //Loops and gives every building a layer, width, height, speed and color
   while (i--) {
     r = (((i + 1) * 1) + 85); 
     g = (75 - (i * 28));
@@ -194,15 +194,14 @@ sketch.setup = function () {
 };
 
 
-// CLEAR
 
+//Function for clearing buildings
 sketch.clear = function () {
   return sketch.clearRect(0, 0, sketch.width, sketch.height);
 };
 
 
-// UPDATE
-
+//Update function to allow continious render of buildings
 sketch.update = function () {
   var i, results, o;
   dt = sketch.dt < .1 ? .1 : sketch.dt / 16;
@@ -216,11 +215,12 @@ sketch.update = function () {
 };
 
 
-// DRAW
+// The Draw function for the buildings
 sketch.draw = function () {
   var i, results;
   i = skylines.length;
   results = [];
+  //Loops to draw every building
   while (i--) {
     results.push(skylines[i].render(i));
   }
@@ -257,17 +257,14 @@ function szChangeA()
 {
   x++;
 }
-
 function szChangeS()
 {
   y++;
 }
-
 function szChangeW()
 {
   wMin++;
 }
-
 function szChangeH()
 {
   hMin++;
